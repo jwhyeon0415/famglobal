@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(주)팜글로벌 | 전문 기계설비 솔루션 파트너</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+        :root {
+            --bg-deep: #0a0a0c;
+            --card-bg: #16161a;
+            --accent-blue: #005eb8; /* 신뢰의 블루 */
+            --text-main: #ffffff;
+            --text-sub: #a1a1aa;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Pretendard', sans-serif; 
+            background-color: var(--bg-deep); 
+            color: var(--text-main); 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* LX Style Navigation */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+        .logo { font-size: 20px; font-weight: 800; letter-spacing: 1px; }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            background: linear-gradient(to right, rgba(10,10,12,0.9), transparent), 
+                        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=2000'); /* 설비 이미지 예시 */
+            background-size: cover;
+            background-position: center;
+        }
+        .hero h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; color: var(--text-sub); max-width: 600px; margin-bottom: 30px; }
+        .ceo-badge { display: inline-block; padding: 10px 20px; border: 1px solid var(--accent-blue); border-radius: 50px; font-size: 14px; }
+
+        /* Section Common */
+        section { padding: 120px 10%; }
+        .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 60px; text-align: center; }
+
+        /* Business Grid */
+        .biz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .biz-card { 
+            background: var(--card-bg); 
+            padding: 40px; 
+            border-radius: 20px; 
+            transition: transform 0.3s;
+            border: 1px solid var(--border);
+        }
+        .biz-card:hover { transform: translateY(-10px); border-color: var(--accent-blue); }
+        .biz-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--text-main); }
+        .biz-card p { color: var(--text-sub); font-size: 14px; }
+
+        /* Partner Section */
+        .partner-box {
+            background: var(--card-bg);
+            padding: 60px;
+            border-radius: 30px;
+            text-align: center;
+            border: 1px solid var(--accent-blue);
+        }
+        .partner-box h2 { color: var(--accent-blue); margin-bottom: 20px; }
+
+        /* Contact Footer */
+        footer {
+            background: #000;
+            padding: 80px 10%;
+            border-top: 1px solid var(--border);
+        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
+        .info-item { margin-bottom: 15px; font-size: 15px; color: var(--text-sub); }
+        .info-label { color: var(--text-main); font-weight: 600; margin-right: 10px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">(주)팜글로벌</div>
+    </nav>
+
+    <section class="hero">
+        <div class="ceo-badge">한국건설기술인협회 부회장</div>
+        <h1>최고의 기술력으로<br>미래를 설계하는 동반자</h1>
+        <p>HDC현대산업개발 상무 출신의 풍부한 실무 경험과 네트워크를 바탕으로 기계설비 분야의 최적화된 솔루션을 제공합니다.</p>
+        <div style="font-weight: 600; font-size: 1.2rem;">대표이사 현규섭</div>
+    </section>
+
+    <section id="business">
+        <h2 class="section-title">Business Areas</h2>
+        <div class="biz-grid">
+            <div class="biz-card">
+                <h3>HDC현대EP</h3>
+                <p>PB PIPE, C-PVC 등 최고의 위생성과 내구성을 갖춘 친환경 배관 자재 공급 전문</p>
+            </div>
+            <div class="biz-card">
+                <h3>LG전자</h3>
+                <p>냉동기, 냉각탑, AHU/FCU 등 고효율 냉난방 에너지 시스템 솔루션</p>
+            </div>
+            <div class="biz-card">
+                <h3>동양벤드</h3>
+                <p>그루브, 압착식, 용접석 이음쇠 등 정밀한 배관 결합 기술 솔루션</p>
+            </div>
+            <div class="biz-card">
+                <h3>설비 컨설팅</h3>
+                <p>기계설비공사 전반에 걸친 전문 자문 및 기술 지원 서비스</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="partner">
+        <div class="partner-box">
+            <h2>Samsung C&T Partner</h2>
+            <p>삼성물산 건설부문의 Vision에 부합하는 최고 품질의 자재 공급과<br>끊임없는 소통을 통해 지속 가능한 성장을 함께 실현합니다.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="logo" style="margin-bottom: 30px;">(주)팜글로벌</div>
+                <div class="info-item"><span class="info-label">주소</span> 경기도 김포시 고촌읍 장차로5번길 5-25, 5층(엔타운)</div>
+                <div class="info-item"><span class="info-label">대표번호</span> 070-5001-6411</div>
+                <div class="info-item"><span class="info-label">이메일</span> hks3920@gmail.com / famglobal@naver.com</div>
+            </div>
+            <div style="text-align: right;">
+                <p style="color: var(--text-sub); font-size: 13px;">&copy; 2026 FAM GLOBAL. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
