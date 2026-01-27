@@ -24,11 +24,11 @@
             overflow-x: hidden;
         }
 
-        /* LX Style Navigation: 투명 배경에서 스크롤 시 반투명하게 */
+        /* 기존 nav 스타일 수정 및 추가 */
         nav {
             position: fixed;
             top: 0; width: 100%;
-            padding: 30px 5%;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,8 +37,34 @@
             z-index: 1000;
             border-bottom: 1px solid var(--border);
         }
-        .logo img { height: 30px; } /* 로고 이미지 크기 조절 */
-        .logo-text { font-size: 20px; font-weight: 800; letter-spacing: 1.5px; }
+        
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap:2px; /* 로고와 텍스트 사이 간격 */
+        }
+        
+        .logo-group img {
+            height: 56px; /* 로고 높이 조절 */
+            width: auto;
+            /* 필터 설명: 검은색을 흰색으로 반전시킵니다. */
+            filter: brightness(0) invert(1); 
+            opacity: 0.9; /* LX 스타일처럼 약간의 투명도를 주면 더 고급스럽습니다. */
+        }
+        
+        .logo-text {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+        }
+        
+        .biz-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-sub);
+            letter-spacing: 1px;
+        }
 
         /* Hero Section: LX의 비디오 배경 스타일 구현 */
         .hero {
@@ -55,7 +81,7 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to right, rgba(0,0,0,0.8), transparent),
-                        url('your-background-image.jpg'); /* [여기에 배경 이미지 경로 입력] */
+                        url('asset/images/bg-hero.jpg'); /* [여기에 배경 이미지 경로 입력] */
             background-size: cover;
             background-position: center;
             z-index: -1;
@@ -131,8 +157,11 @@
 <body>
 
     <nav>
-        <div class="logo-text">(주)팜글로벌</div>
-        <div style="font-size: 14px; font-weight: 500; color: var(--text-sub);">BUSINESS SOLUTION</div>
+        <div class="logo-group">
+            <img src="asset/images/logo_famglobal.png" alt="(주)팜글로벌 로고">
+            <span class="logo-text">(주)팜글로벌</span>
+        </div>
+        <div class="biz-label">BUSINESS SOLUTION</div>
     </nav>
 
     <section class="hero">
