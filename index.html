@@ -3,181 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>(주)팜글로벌 | 전문 기계설비 솔루션 파트너</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <title>(주)팜글로벌 | 기계설비 컨설팅 & 배관자재 전문</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0a0a0c;
-            --accent: #005eb8; /* 신뢰를 주는 기업 블루 */
+            --bg-dark: #0a0e14;
+            --bg-card: #161b22;
+            --accent-blue: #38bdf8;
             --text-main: #ffffff;
-            --text-sub: #94a3b8;
-            --card-bg: #16161a;
-            --border: rgba(255, 255, 255, 0.1);
+            --text-dim: #94a3b8;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
-        body { 
-            font-family: 'Pretendard', sans-serif; 
-            background-color: var(--bg-dark); 
-            color: var(--text-main); 
-            line-height: 1.6; 
-            overflow-x: hidden;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
         }
 
-        /* 기존 nav 스타일 수정 및 추가 */
-        nav {
+        /* 배경 효과 */
+        body::before {
+            content: "";
             position: fixed;
-            top: 0; width: 100%;
-            padding: 20px 5%;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0a0e14 100%);
+            z-index: -1;
+        }
+
+        /* 헤더 디자인 수정 (로고 + 회사명) */
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 10, 12, 0.7);
-            backdrop-filter: blur(20px);
+            padding: 15px 8%;
+            background: rgba(10, 14, 20, 0.85);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
             z-index: 1000;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .logo-group {
-            display: flex;
-            align-items: center;
-            gap:2px; /* 로고와 텍스트 사이 간격 */
-        }
-        
-        .logo-group img {
-            height: 56px; /* 로고 높이 조절 */
-            width: auto;
-            /* 필터 설명: 검은색을 흰색으로 반전시킵니다. */
-            filter: brightness(0) invert(1); 
-            opacity: 0.9; /* LX 스타일처럼 약간의 투명도를 주면 더 고급스럽습니다. */
-        }
-        
-        .logo-text {
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            color: var(--text-main);
-        }
-        
-        .biz-label {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-sub);
-            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Hero Section: LX의 비디오 배경 스타일 구현 */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 3px; /* 로고와 텍스트 사이 간격 */
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .logo-container img {
+            height: 45px; /* 로고 이미지 크기 조절 */
+            width: auto;
+            object-fit: contain;
+            /* 검은색 로고를 흰색으로 반전시키는 필터 */
+            filter: brightness(0) invert(1);
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 30px; font-size: 0.95rem; opacity: 0.8; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-blue); opacity: 1; }
+
+        /* 섹션 공통 스타일 */
         .hero {
-            position: relative;
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 0 10%;
-            overflow: hidden;
-        }
-        /* 배경 영상이나 큰 이미지가 들어갈 자리 */
-        .hero-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to right, rgba(0,0,0,0.8), transparent),
-                        url('asset/images/bg-hero.jpg'); /* [여기에 배경 이미지 경로 입력] */
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-        }
-        .hero .badge {
-            display: inline-block;
-            padding: 8px 18px;
-            border: 1px solid var(--accent);
-            border-radius: 50px;
-            font-size: 14px;
-            color: var(--accent);
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-        .hero h1 { font-size: 4rem; font-weight: 700; line-height: 1.1; margin-bottom: 25px; }
-        .hero h1 span { color: var(--accent); }
-        .hero p { font-size: 1.25rem; color: var(--text-sub); max-width: 700px; margin-bottom: 40px; }
-        .hero .ceo-name { font-size: 1.5rem; font-weight: 600; }
-
-        /* Business Area: LX의 카드 레이아웃 벤치마킹 */
-        section { padding: 140px 10%; }
-        .section-header { margin-bottom: 80px; }
-        .section-header h2 { font-size: 3rem; font-weight: 700; }
-        .section-header p { color: var(--accent); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
-
-        .biz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
-        .biz-card { 
-            background: var(--card-bg); 
-            padding: 50px 40px; 
-            border-radius: 24px; 
-            border: 1px solid var(--border);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            cursor: pointer;
-        }
-        .biz-card:hover { 
-            transform: translateY(-15px); 
-            border-color: var(--accent); 
-            box-shadow: 0 20px 40px rgba(0, 94, 184, 0.1); 
-        }
-        .biz-card h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--accent); }
-        .biz-card p { color: var(--text-sub); font-size: 16px; word-break: keep-all; }
-
-        /* Partner Banner: LX의 로고 바 스타일 */
-        .partner-section {
-            background: #111114;
-            padding: 80px 10%;
+            align-items: center;
             text-align: center;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            padding: 0 20px;
         }
-        .partner-section h4 { font-size: 1.2rem; color: var(--text-sub); margin-bottom: 30px; letter-spacing: 3px; }
-        .partner-logo { font-size: 2.2rem; font-weight: 800; color: #fff; opacity: 0.9; }
+        .hero .tag { color: var(--accent-blue); font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 25px; }
+        .hero p { color: var(--text-dim); font-size: 1.2rem; max-width: 700px; }
 
-        /* Footer: LX의 하단 정보 배치 방식 */
+        .container { padding: 120px 10%; }
+        .section-title { font-size: 2.2rem; margin-bottom: 50px; text-align: center; }
+        .section-title span { color: var(--accent-blue); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .biz-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+        .biz-card:hover { transform: translateY(-10px); border-color: var(--accent-blue); }
+        .biz-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--accent-blue); }
+
+        .ceo-box {
+            display: flex;
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .ceo-img {
+            width: 40%;
+            min-height: 350px;
+            max-height: 500px;
+            background: #2d3748;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* 이미지가 박스 밖으로 나가지 않게 함 */
+        }
+
+        .ceo-img img2 {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 이미지가 찌그러지지 않고 박스에 꽉 차게 함 */
+            display: block;
+        }
+
+        .ceo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 이미지가 찌그러지지 않고 박스에 꽉 차게 함 */
+            object-position: center; /* 이미지의 중앙을 기준으로 배치 */
+        }
+        .ceo-content { padding: 50px; width: 60%; }
+
         footer {
-            padding: 100px 10% 60px;
             background: #000;
+            padding: 60px 10%;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
-        .footer-top { display: flex; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap; gap: 40px; }
-        .footer-info h2 { margin-bottom: 30px; font-size: 24px; }
-        .info-list { list-style: none; }
-        .info-list li { margin-bottom: 12px; color: var(--text-sub); font-size: 15px; }
-        .info-list b { color: var(--text-main); margin-right: 15px; min-width: 80px; display: inline-block; }
-        
-        .footer-bottom { border-top: 1px solid var(--border); padding-top: 30px; color: #4b5563; font-size: 13px; text-align: right; }
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: 1.5fr 1fr 1fr; 
+            gap: 40px; 
+        }
+        .footer-info p { 
+            color: var(--text-dim); 
+            font-size: 0.9rem; 
+            line-height: 1.4; /* 줄 간격을 1.7에서 1.4로 축소 */
+            margin-bottom: 4px; /* 아래 간격을 8px에서 4px로 축소 */
+        }
+        .footer-info h4 {
+            margin-bottom: 12px;
+        }
 
-        @media (max-width: 1024px) {
-            .hero h1 { font-size: 3rem; }
-            section { padding: 100px 5%; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .ceo-box { flex-direction: column; }
+            .ceo-img, .ceo-content { width: 100%; }
+            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo-group">
+        <a href="index.html" class="logo-container">
             <img src="asset/images/logo_famglobal.png" alt="(주)팜글로벌 로고">
             <span class="logo-text">(주)팜글로벌</span>
+        </a>
+        <div class="nav-links">
+            <a href="#about">회사소개</a>
+            <a href="#business">사업영역</a>
+            <a href="#contact">오시는길</a>
         </div>
-        <div class="biz-label">BUSINESS SOLUTION</div>
     </nav>
 
     <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="badge">한국건설기술인협회 부회장</div>
-        <h1>Future in<br><span>Business Solution</span></h1>
-        <p>HDC현대산업개발 상무 출신의 전문 엔지니어링 역량과 삼성물산 건설부문과의 파트너십을 통해 더 나은 세상을 위한 기계설비 솔루션을 만듭니다.</p>
-        <div class="ceo-name">대표이사 현규섭</div>
+        <span class="tag">PROFESSIONAL FACILITY PARTNER</span>
+
+        <h1>최적의 설비를 위한<br>기계설비 전문 파트너</h1>
+        <p>검증된 자재 유통과 전문적인 기술 자문으로 고객의 성공적인 비즈니스를 위한 최고의 기계설비 인프라를 구축합니다.</p>
     </section>
 
-    <section id="business">
-        <div class="section-header">
-            <p>Our Solutions</p>
-            <h2>사업 분야</h2>
-        </div>
-        <div class="biz-grid">
+    <section class="container" id="business">
+        <h2 class="section-title">주요 <span>사업 영역</span></h2>
+        <div class="grid">
             <div class="biz-card">
                 <h3>HDC현대EP</h3>
                 <p>PB PIPE 및 C-PVC 전문 공급. 뛰어난 위생성과 반영구적인 수명을 자랑하는 친환경 배관재 솔루션을 제공합니다.</p>
@@ -197,26 +205,44 @@
         </div>
     </section>
 
-    <div class="partner-section">
-        <h4>STRATEGIC PARTNER</h4>
-        <div class="partner-logo">Samsung C&T Corporation</div>
-    </div>
-
-    <footer>
-        <div class="footer-top">
-            <div class="footer-info">
-                <h2>(주)팜글로벌</h2>
-                <ul class="info-list">
-                    <li><b>ADDRESS</b> 경기도 김포시 고촌읍 장차로5번길 5-25, 5층(엔타운)</li>
-                    <li><b>TEL</b> 070-5001-6411 / 010-9418-2910</li>
-                    <li><b>EMAIL</b> hks3920@gmail.com / famglobal@naver.com</li>
-                </ul>
+    <section class="container" id="about">
+        <h2 class="section-title">전문가 <span>네트워크</span></h2>
+        <div class="ceo-box">
+            <div class="ceo-img">
+                <!-- <span style="color: #4a5568;">PHOTO PLACEHOLDER</span> -->
+                <img src="asset/images/ceo_photo.jpg" alt="현규섭 대표이사">
+            </div>
+            <div class="ceo-content">
+                <span style="color: var(--accent-blue); font-weight: 700;">한국건설기술인협회 부회장</span>
+                <h2 style="margin: 10px 0;">현규섭 대표이사</h2>
+                <p>HDC현대산업개발(주) 상무 출신의 기계설비 전문가로서 차별화된 실무 지식과 업계 인적 네트워크를 보유하고 있습니다.</p>
+                <p style="margin-top: 15px;">(주)팜글로벌은 고객사의 성장을 위해 가장 전문적이고 정직한 파트너가 될 것을 약속드립니다.</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            COPYRIGHT © 2026 FAM GLOBAL CORP. ALL RIGHTS RESERVED.
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h4>(주)팜글로벌</h4>
+                <p>대표이사: 김한나</p>
+                <p>사업자등록번호: 361-87-00677</p>
+                <p>주소: 경기도 김포시 고촌읍 장차로5번길 5-25, 5층(엔타운)</p>
+            </div>
+            <div class="footer-info">
+                <h4>Contact</h4>
+                <p>Tel: 070-5001-6411</p>
+                <p>Fax: 070-8277-6411</p>
+                <p>Email: famglobal@naver.com</p>
+            </div>
+            <div class="footer-info">
+                <h4>Partners</h4>
+                <p>HDC현대EP</p>
+                <p>LG전자</p>
+                <p>동양벤드</p>
+            </div>
         </div>
     </footer>
 
-</body>
+    </body>
 </html>
